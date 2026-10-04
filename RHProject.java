@@ -31,7 +31,7 @@ public class RHProject{
         hero.weaponEquip("Rusted Dagger", 3);
         System.out.println("Use them wisely and try not to die too fast.\nGood luck " + playerName);
 
-        
+
 
         input.close();
     }
@@ -72,6 +72,26 @@ class Player {
         }   else{
             System.out.println(name + " took " + damageAmount + " damage.");
         }
+    }
+    public void addItem(String itemName){
+        for (int itemStart = 0; itemStart < inventory.length; itemStart++){
+            if (inventory[itemStart] == null){
+                inventory[itemStart] = itemName;
+                return;
+            }
+        }
+        System.out.println("Inventory is Full!!");
+    }
+
+    public void usePotion(){
+        for (int i = 0; i < inventory.length; i++){
+            if ("Health Potion".equalsIgnoreCase(inventory[i])){
+                inventory[i] = null;
+                heal(30);
+                return;
+            }
+        }
+        System.out.println("You have no Health Potions left!");
     }
 
     void heal(int healAmount){ //Will adjust Players health based on healing
