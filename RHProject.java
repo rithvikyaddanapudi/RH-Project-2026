@@ -100,7 +100,13 @@ public class RHProject{
             hero.addItem("Health Potion");
         }
 
-        
+        if (hero.isAlive()) {
+            System.out.println("\n**************************************************");
+            System.out.println("CONGRATULATIONS " + hero.name + "! YOU CLEARED THE DUNGEON!");
+            System.out.println("**************************************************");
+        } else {
+            System.out.println("\nYou perished in the dungeon. Better luck next time!");
+        }
 
         input.close();
     }
