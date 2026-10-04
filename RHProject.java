@@ -77,5 +77,15 @@ class Monster {
         resistance = startingResistance;
      }
 
-      
+    void takeDamage(int damageAmount){
+        damageAmount = damageAmount - resistance;
+        if (damageAmount < 0){
+            damageAmount = 0;
+        }
+        health = health - damageAmount;
+        if (health < 0){
+            health = 0;
+        }
+        System.out.println(name + " took " + damageAmount + " damage.");
+     }
 }
