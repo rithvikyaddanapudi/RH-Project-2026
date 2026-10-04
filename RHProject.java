@@ -92,4 +92,8 @@ class Monster {
         }
         System.out.println(name + " took " + damageAmount + " damage.");
      }
+
+     boolean isAlive(){
+        return health > 0;
+     }
 }
