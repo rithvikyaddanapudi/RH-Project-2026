@@ -60,3 +60,22 @@ class Player {
     }
 
 }
+
+class Monster {
+
+    String name;
+    int health;
+    int maxHealth;
+    int baseAttack;
+    int resistance;
+
+     Monster(String startingName, int startingHealth, int startingMaxHealth, int startingBaseAttack, int startingResistance){
+        name = startingName;
+        health = startingHealth;
+        maxHealth = startingMaxHealth;
+        baseAttack = startingBaseAttack;
+        resistance = startingResistance;
+     }
+
+      
+}
