@@ -1,4 +1,4 @@
-class RHProject {
+public class RHProject{
     public static void main(String []args){
         
     }
