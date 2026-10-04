@@ -45,12 +45,60 @@ public class RHProject{
         String[] floorWeapons = {
             "Dagger", "Iron sword", "Steel sword", "Steel Longsword","Bloodfang Scythe", "Void Reaver", "Soulrender"
         };
-        int [] floorWeaponDamage = {5, 7, 10, 13, 17, 20, 23};
+        int [] floorWeaponsDamage = {5, 7, 10, 13, 17, 20, 23};
 
         String[] floorArmor = {
             "Reinforced Tunic", "Chainmail armor", "Bone Carapace", "Werewolf Cloak", "Void Carapace", "Spectral Cape", "Crownguard Plate"
         };
         int [] floorArmorDefense = {5, 7, 9, 13, 15, 19, 23};
+
+        for (int floor = 0; floor < bosses.length; floor++){
+            Monster boss = bosses[floor];
+
+            System.out.println("======================");
+            System.out.println("Entering floor " + (floor + 1) + "!");
+            System.out.println("You encountered boss: " + boss.name + "\nHP: " + boss.health);
+            System.out.println("======================");
+
+            while (hero.isAlive() && boss.isAlive()){
+                System.out.println("\nYour HP: " + hero.health + "/" + hero.maxHealth + " | " + boss.name + "HP: " + boss.health + "/" + boss.maxHealth);
+                System.out.println("========\nChose your action:\n [1] Attack \n[2] Heal \n[3] Show stats \n[Input number only]");
+                String choice = input.nextLine();
+
+                switch (choice){
+                    
+                    case "1":
+                        System.out.println("You attack " + boss.name + "!");
+                        boss.takeDamage(hero.getTotalAttack());
+                    break;
+
+                    case "2":
+                        hero.usePotion();
+                    break;
+
+                    case "3":
+                        hero.showStats();
+                    continue;
+
+                    default: 
+                        System.out.println("Invalid input! You tripped and lost your turn.");
+                    break;
+                }
+
+                if (boss.isAlive()){
+                    System.out.println(boss.name + " attacks");
+                    hero.takeDamage(boss.baseAttack);
+                }
+            }
+            if (!hero.isAlive()){
+                break;
+            }
+
+            System.out.println("\n** Congrats on completeing Floor" + (floor + 1) + "! **");
+            hero.weaponEquip(floorWeapons[floor], floorWeaponsDamage[floor]);
+            hero.armorEquip(floorArmor[floor], floorArmorDefense[floor]);
+            hero.addItem("Health Potion");
+        }
 
         
 
