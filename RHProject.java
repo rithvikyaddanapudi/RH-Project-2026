@@ -1,7 +1,7 @@
 import java.util.*;
 public class RHProject{
     public static void main(String []args){
-
+       
     }
 }
 
@@ -34,14 +34,18 @@ class Player {
         if (health < 0){
             health = 0;
         }   
-        System.out.println(name + " took " + damageAmount + " damage.")
+        if (health == 0){
+            System.out.println(name + " has been killed.\n----Game over.----");
+        }   else{
+            System.out.println(name + " took " + damageAmount + " damage.");
+        }
     }
 
     void heal(int healAmount){ //Will adjust Players health based on healing
         health = health + healAmount;
         
         if (health > maxHealth){
-            healAmount = health - maxHealth
+            healAmount = health - maxHealth;
             health = maxHealth;
         }
         System.out.println(name + " healed " + healAmount + " points of health.");
@@ -63,6 +67,9 @@ class Player {
         System.out.println("You just equipped " + armorName + " with defense of " + armorDefense);
     }
 
+    boolean isAlive(){
+        return health > 0;
+    }
 }
 
 class Monster {
