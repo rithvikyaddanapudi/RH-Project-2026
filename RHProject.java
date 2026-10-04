@@ -34,13 +34,17 @@ class Player {
         if (health < 0){
             health = 0;
         }   
+        System.out.println(name + " took " + damageAmount + " damage.")
     }
 
     void heal(int healAmount){ //Will adjust Players health based on healing
         health = health + healAmount;
+        
         if (health > maxHealth){
+            healAmount = health - maxHealth
             health = maxHealth;
         }
+        System.out.println(name + " healed " + healAmount + " points of health.");
     }
 
     void showStats(){ //Will show the current stats of the player
