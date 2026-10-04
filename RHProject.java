@@ -23,21 +23,21 @@ class Player {
         baseAttack = startingBaseAttack;
     }
 
-    void takeDamage(int damageAmount){
+    void takeDamage(int damageAmount){ //Will adjust Players heal based on damage taken
         health = health - damageAmount;
         if (health < 0){
             health = 0;
         }   
     }
 
-    void heal(int healAmount){
+    void heal(int healAmount){ //Will adjust Players health based on healing
         health = health + healAmount;
         if (health > maxHealth){
             health = maxHealth;
         }
     }
 
-    void showStats(){
+    void showStats(){ //Will show the current stats of the player
         System.out.println("-------------------\nPlayer Stats:\nName: " + name 
                         + "\nHealth: " + health + " / " + maxHealth 
                         + "\nAttack: " + baseAttack
