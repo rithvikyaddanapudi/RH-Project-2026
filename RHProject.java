@@ -43,13 +43,16 @@ class Player {
     }
 
     void heal(int healAmount){ //Will adjust Players health based on healing
+        int oldHealth = health;
         health = health + healAmount;
         
         if (health > maxHealth){
-            healAmount = health - maxHealth;
             health = maxHealth;
         }
-        System.out.println(name + " healed " + healAmount + " points of health.");
+
+        int actualHealed =  health - oldHealth;
+        
+        System.out.println(name + " healed " + actualHealed + " points of health.");
     }
 
     void showStats(){ //Will show the current stats of the player
@@ -69,9 +72,9 @@ class Player {
     }
 
     void weaponEquip(String weaponName, int weaponBonusDamage){
-        weaponName = equipment[0];
-        weaponBonusDamage = weaponAttack;
-        System.out.println("You just equipped " + weaponName + " with attack power " + weaponBonusDamage)
+        equipment[0] = weaponName;
+        weaponAttack = weaponBonusDamage;
+        System.out.println("You just equipped " + weaponName + " with attack power " + weaponBonusDamage);
     }
 
     int getTotalAttack(){
