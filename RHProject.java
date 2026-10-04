@@ -47,9 +47,12 @@ public class RHProject{
         };
         int [] floorWeaponDamage = {5, 7, 10, 13, 17, 20, 23};
 
+        String[] floorArmor = {
+            "Reinforced Tunic", "Chainmail armor", "Bone Carapace", "Werewolf Cloak", "Void Carapace", "Spectral Cape", "Crownguard Plate"
+        };
+        int [] floorArmorDefense = {5, 7, 9, 13, 15, 19, 23};
+
         
-
-
 
         input.close();
     }
