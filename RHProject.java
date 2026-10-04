@@ -90,7 +90,11 @@ class Monster {
         if (health < 0){
             health = 0;
         }
-        System.out.println(name + " took " + damageAmount + " damage.");
+        if (health == 0){
+            System.out.println(name + " has been killed.");
+        }   else{
+            System.out.println(name + " took " + damageAmount + " damage.");
+        }
      }
 
      boolean isAlive(){
