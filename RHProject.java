@@ -29,9 +29,20 @@ public class RHProject{
         System.out.println("Well " + playerName + " to start you out I'll give you some tools.");
         hero.armorEquip("Leather Tunic", 3);
         hero.weaponEquip("Rusted Dagger", 3);
+        hero.addItem("Health Potion");
         System.out.println("Use them wisely and try not to die too fast.\nGood luck " + playerName);
 
+        Monster[] bosses ={
+            new Monster("Goblin Leader", 50, 50, 5, 0),
+            new Monster("Goblin Cheiftain", 60, 60, 10, 3),
+            new Monster("Skeleton Overlord", 60, 60, 15, 0),
+            new Monster("Bloodfang Werewolf", 110, 110, 12, 5),
+            new Monster("Void Wyrm", 130, 130, 20, 10),
+            new Monster("The Hollow Lich", 100, 100, 23, 6),
+            new Monster("The Forgotten Emporer", 150, 150, 25, 15)
+        };
 
+        
 
         input.close();
     }
@@ -77,6 +88,7 @@ class Player {
         for (int itemStart = 0; itemStart < inventory.length; itemStart++){
             if (inventory[itemStart] == null){
                 inventory[itemStart] = itemName;
+                System.out.println("You just picked up " + itemName);
                 return;
             }
         }
