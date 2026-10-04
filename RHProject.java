@@ -1,7 +1,7 @@
 import java.util.*;
 public class RHProject{
     public static void main(String []args){
-       
+        
     }
 }
 
@@ -12,6 +12,7 @@ class Player {
     int maxHealth;
     int baseAttack;
     int defense;
+    int weaponAttack = 0;
 
     // Slot 0 = Weapon, Slot 1 = Armor
     String[] equipment = new String[2];
@@ -54,7 +55,7 @@ class Player {
     void showStats(){ //Will show the current stats of the player
         System.out.println("-------------------\nPlayer Stats:\nName: " + name 
                         + "\nHealth: " + health + " / " + maxHealth 
-                        + "\nAttack: " + baseAttack
+                        + "\nAttack: " + (baseAttack + weaponAttack)
                         + "\nWeapon: " + equipment[0]
                         + "\nArmor: " + equipment[1]
                         + "\nInventory: \n" + inventory[0]  + "\n" + inventory[1] + "\n" + inventory[2]
@@ -65,6 +66,16 @@ class Player {
         equipment[1] = armorName;
         defense = armorDefense;
         System.out.println("You just equipped " + armorName + " with defense of " + armorDefense);
+    }
+
+    void weaponEquip(String weaponName, int weaponBonusDamage){
+        weaponName = equipment[0];
+        weaponBonusDamage = weaponAttack;
+        System.out.println("You just equipped " + weaponName + " with attack power " + weaponBonusDamage)
+    }
+
+    int getTotalAttack(){
+        return baseAttack + weaponAttack;
     }
 
     boolean isAlive(){
