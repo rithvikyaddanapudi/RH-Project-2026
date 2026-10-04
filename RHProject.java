@@ -28,5 +28,12 @@ class Player {
             health = 0
         }   
     }
-    
+
+    void heal(healAmount){
+        health = health + healAmount;
+        if (health > maxHealth){
+            health = maxHealth;
+        }
+    }
+
 }
