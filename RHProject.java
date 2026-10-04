@@ -42,7 +42,14 @@ public class RHProject{
             new Monster("The Forgotten Emporer", 150, 150, 25, 15)
         };
 
+        String[] floorWeapons = {
+            "Dagger", "Iron sword", "Steel sword", "Steel Longsword","Bloodfang Scythe", "Void Reaver", "Soulrender"
+        };
+        int [] floorWeaponDamage = {5, 7, 10, 13, 17, 20, 23};
+
         
+
+
 
         input.close();
     }
