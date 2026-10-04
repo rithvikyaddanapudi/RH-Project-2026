@@ -22,14 +22,14 @@ class Player {
         baseAttack = startingBaseAttack;
     }
 
-    void takeDamage(damageAmount){
+    void takeDamage(int damageAmount){
         health = health - damageAmount;
         if (health < 0){
-            health = 0
+            health = 0;
         }   
     }
 
-    void heal(healAmount){
+    void heal(int healAmount){
         health = health + healAmount;
         if (health > maxHealth){
             health = maxHealth;
