@@ -11,6 +11,7 @@ class Player {
     int health;
     int maxHealth;
     int baseAttack;
+    int defense;
 
     // Slot 0 = Weapon, Slot 1 = Armor
     String[] equipment = new String[2];
@@ -21,9 +22,14 @@ class Player {
         health = startingHealth;
         maxHealth = startingMaxHealth;
         baseAttack = startingBaseAttack;
+        defense = 0;
     }
 
     void takeDamage(int damageAmount){ //Will adjust Players heal based on damage taken
+        damageAmount = damageAmount - defense;
+        if (defense > damageAmount){
+            damageAmount = 0
+        }
         health = health - damageAmount;
         if (health < 0){
             health = 0;
