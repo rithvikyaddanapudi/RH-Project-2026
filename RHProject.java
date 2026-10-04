@@ -1,7 +1,31 @@
 import java.util.*;
 public class RHProject{
     public static void main(String []args){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Hello Player!\nWelcome to the dungeon!");
+        String playerAnswerForNameVerify = "";
+        String playerName = "";
         
+        do {
+            System.out.println("Please enter your name: ");
+            playerName = input.nextLine();
+
+            System.out.println("Your name is " + playerName + ", is that correct? [Yes or No]");
+            playerAnswerForNameVerify = input.nextLine();
+
+            if (playerAnswerForNameVerify.equalsIgnoreCase("no")){
+            System.out.println("Please enter your name again: ");
+        }   else if (playerAnswerForNameVerify.equalsIgnoreCase("yes")){
+            System.out.println("Thank you for confirming!");
+        }   else{
+            System.out.println("Invalid Input");
+        }
+
+        } while (!(playerAnswerForNameVerify.equalsIgnoreCase("yes")));
+        Player hero = new Player(playerName, 100, 100, 5);
+        
+        input.close();
     }
 }
 
