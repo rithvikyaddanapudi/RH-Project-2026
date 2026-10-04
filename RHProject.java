@@ -28,7 +28,7 @@ class Player {
     void takeDamage(int damageAmount){ //Will adjust Players heal based on damage taken
         damageAmount = damageAmount - defense;
         if (defense > damageAmount){
-            damageAmount = 0
+            damageAmount = 0;
         }
         health = health - damageAmount;
         if (health < 0){
@@ -51,6 +51,12 @@ class Player {
                         + "\nArmor: " + equipment[1]
                         + "\nInventory: \n" + inventory[0]  + "\n" + inventory[1] + "\n" + inventory[2]
                         + "\n-------------------");
+    }
+
+    void armorEquip(String armorName, int armorDefense){
+        equipment[1] = armorName;
+        defense = armorDefense;
+        System.out.println("You just equipped " + armorName + "with defense of " + armorDefense);
     }
 
 }
