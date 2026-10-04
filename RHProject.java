@@ -15,7 +15,7 @@ public class RHProject{
             playerAnswerForNameVerify = input.nextLine();
 
             if (playerAnswerForNameVerify.equalsIgnoreCase("no")){
-            System.out.println("Please enter your name again: ");
+            System.out.println("-----------------");
         }   else if (playerAnswerForNameVerify.equalsIgnoreCase("yes")){
             System.out.println("Thank you for confirming!");
         }   else{
@@ -23,8 +23,16 @@ public class RHProject{
         }
 
         } while (!(playerAnswerForNameVerify.equalsIgnoreCase("yes")));
+
         Player hero = new Player(playerName, 100, 100, 5);
+
+        System.out.println("Well " + playerName + " to start you out I'll give you some tools.");
+        hero.armorEquip("Leather Tunic", 3);
+        hero.weaponEquip("Rusted Dagger", 3);
+        System.out.println("Use them wisely and try not to die too fast.\nGood luck " + playerName);
+
         
+
         input.close();
     }
 }
